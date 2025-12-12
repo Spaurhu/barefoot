@@ -26,7 +26,8 @@
         <div class="col" th:each="fav : ${favoritos}">
             <div class="card fav-card h-100 bg-white border">
                 <div class="position-relative overflow-hidden" style="height: 250px; background: #F8F5F2;">
-                    <a th:href="@{/productos/detalle/{id}(id=${fav.producto.id})}">
+
+                    <a th:href="@{/productos/{id}(id=${fav.producto.id})}">
                         <img th:if="${fav.producto.imagenUrl != null}"
                              th:src="${fav.producto.imagenUrl}" class="w-100 h-100 object-fit-cover">
                         <div th:if="${fav.producto.imagenUrl == null}"
@@ -44,12 +45,10 @@
 
                 <div class="card-body text-center p-3">
                     <h6 class="card-title text-truncate mb-1">
-                        <a th:href="@{/productos/detalle/{id}(id=${fav.producto.id})}"
+                        <a th:href="@{/productos/{id}(id=${fav.producto.id})}"
                            class="text-decoration-none text-primary fw-bold"
                            th:text="${fav.producto.nombre}">Nombre</a>
                     </h6>
-                    <p class="text-muted small mb-2" th:text="${fav.producto.categoria}">Cat</p>
-                    <div class="fw-bold text-primary">S/ <span th:text="${fav.producto.precio}">0.00</span></div>
                 </div>
             </div>
         </div>
